@@ -1,10 +1,10 @@
 const controller = {
   login:function(req, res){
-res.send("esto es login")
+    res.render('login')
 },
 
 Register:function(req, res){
-  res.send("esto es register")
+  res.render('register')
   },
 
   profile: function(req, res){
