@@ -1,8 +1,22 @@
 const controller = {
-    index: function(req, res){
-        res.send('Aca se encuentran todos los usuarios')
-    }
+  login:function(req, res){
+res.send("esto es login")
+},
+
+Register:function(req, res){
+  res.send("esto es register")
+  },
+
+  profile: function(req, res){
+    res.send("esto es profile")
+    },
+
+   editProfile:  function(req, res){
+      res.send("esto es edit profile")
+      }
+
+
     
     }
 
-module.exports = contreoller
+module.exports = controller
