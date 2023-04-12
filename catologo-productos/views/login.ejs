@@ -1,4 +1,46 @@
-<%- include('./partials/head') %>
-<%- include('./partials/header') %>
 
-<%- include('./partials/footer') %>
+
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+
+<%- include('./partials/head') %>
+
+
+<body>
+	
+    <%- include('./partials/header') %>
+
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Ingresar</h2>
+			</div>
+			
+            <section>
+                <form action="" method="post">
+                    <div>
+                        <input type="text" placeholder="Email">
+                    </div>
+                    <div>
+                        <input type="password" placeholder="Password">
+                    </div>
+                    <input type="checkbox" id="recordarClave" name="recordarClave">
+  <label for="recordarClave">Recordar clave</label>
+  <br><br>
+                    
+                    
+                    <button>
+                        Log in
+                    </button>
+    
+                </form>
+               </section>
+
+
+
+	<%- include('./partials/footer') %>
+</body>
+
+</html>

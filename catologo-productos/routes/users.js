@@ -8,4 +8,5 @@ router.get('/register', controller.Register)
 router.get('/profile', controller.profile)
 router.get('/edit-profile', controller.editProfile)
 
+
 module.exports = router;
