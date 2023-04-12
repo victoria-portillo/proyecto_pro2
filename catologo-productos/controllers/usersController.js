@@ -8,11 +8,11 @@ Register:function(req, res){
   },
 
   profile: function(req, res){
-    res.send("esto es profile")
+    res.render('profile')
     },
 
    editProfile: function(req, res){
-      res.send("esto es edit profile")
+      res.render('edit-profile')
       }
     }
 
