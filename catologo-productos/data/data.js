@@ -13,7 +13,7 @@ const moduloDatos = {
         descripción: 'Esta novela distópica, escrita por George Orwell, imagina un futuro totalitario en el que el gobierno controla todos los aspectos de la vida de las personas, incluso sus pensamientos. "1984" es una crítica feroz al autoritarismo y una advertencia sobre los peligros del poder sin restricciones.',
         imagen: '../public/images/products/george-orwell-1984-1024x706.jpeg',
         fechaCarga: 
-      },
+      }
       {
         nombre: 'El gran Gatsby',
         descripción: 'Esta novela escrita por F. Scott Fitzgerald, esta ambientada en la década de 1920 sigue la vida de Jay Gatsby, un hombre rico y misterioso que organiza fiestas extravagantes en su mansión en Long Island. A través de los ojos del narrador, Nick Carraway, "El gran Gatsby" explora la corrupción y el vacío de la alta sociedad americana.',
@@ -54,7 +54,7 @@ const moduloDatos = {
         nombre: 'La metamorfosis',
         descripción: 'Este relato corto cuenta la historia de Gregor Samsa, un hombre que se despierta un día convertido en un insecto. "La metamorfosis" es una obra de la literatura moderna que explora la alienación, la soledad y la desesperación.',
         imagen: '../public/images/products/metamorfosis.webp',
-        fechaCarga:
+        fechaCarga: 
       },
       {
         nombre: 'El principito',
