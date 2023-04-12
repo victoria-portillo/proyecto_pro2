@@ -84,3 +84,4 @@ const moduloDatos = {
     ]
   };
   
+  module.exports = data
