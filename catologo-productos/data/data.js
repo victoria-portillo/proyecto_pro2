@@ -84,4 +84,4 @@ const moduloDatos = {
     ]
   };
   
-  module.exports = data
+  module.exports = moduloDatos
