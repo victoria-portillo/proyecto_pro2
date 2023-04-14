@@ -4,7 +4,7 @@ index: function(req, res){
 },
 
 detalle: function(req, res){
-    res.render("product_detalle")
+    res.render('product_detalle')
 }
 
 }
