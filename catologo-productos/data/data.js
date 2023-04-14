@@ -88,11 +88,57 @@ const moduloDatos = {
         imagenPerfil: '../public/images/users/default-image.png'
       },
       {
-        nombreUsuario: 'miguelestrada24',
+        nombreUsuario: 'luisa15',
         textoComentario: 'Muy interesante!',
-        imagenPerfil: '../public/images/users/default-image.png'
+        imagenPerfil: '/images/users/default-image.png'
       },
-      // Agregar aquí más comentarios
+      {
+        nombreUsuario: 'gabriel22',
+        textoComentario: 'Un poco aburrido',
+        imagenPerfil: '/images/users/default-image.png'
+      },
+      {
+        nombreUsuario: 'andrea5556',
+        textoComentario: 'Una opción diferente',
+        imagenPerfil: '/images/users/default-image.png'
+      },
+      {
+        nombreUsuario: 'rodrigo27',
+        textoComentario: 'Muy recomendable',
+        imagenPerfil: '/images/users/default-image.png'
+      },
+      {
+        nombreUsuario: 'esmeralda14',
+        textoComentario: 'Espero el próximo ejemplar',
+        imagenPerfil: '/images/users/default-image.png'
+      },
+      {
+        nombreUsuario: 'mabel17',
+        textoComentario: 'Una lectura ligera',
+        imagenPerfil: '/images/users/default-image.png'
+      },
+      {
+        nombreUsuario: 'liliana10',
+        textoComentario: 'Mal desarrollo de personajes',
+        imagenPerfil: '/images/users/default-image.png'
+      },
+      {
+        nombreUsuario: 'victoria11',
+        textoComentario: 'La mejor villana que leí en una historia',
+        imagenPerfil: '/images/users/default-image.png'
+      },
+      {
+        nombreUsuario: 'valentina22',
+        textoComentario: 'Otro éxito de la autora',
+        imagenPerfil: '/images/users/default-image.png'
+      },
+      {
+        nombreUsuario: 'taylor54',
+        textoComentario: 'Final inesperado para la saga',
+        imagenPerfil: '/images/users/default-image.png'
+      },
+      
+        
     ]
   };
   
