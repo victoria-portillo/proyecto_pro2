@@ -27,13 +27,16 @@
         </button>
 
         <nav class="main-navbar">
+            <%if (usuarioLogueado === true ){%>
             <ul class="left-navbar">
+                
                 <li><a href="/">Todos los productos</a></li>
-                <!-- solo logueado <li><a href="">Cargar productos</a></li> -->
+                 <li><a href="/productos/add">Cargar productos</a></li>
+                 <li><a href="/users/edit-profile">modificar mi perfil</a></li> 
             </ul>
 
             <ul class="right-navbar">
-                <!-- Solo logueado <li><a href="profile.html">
+                 <li><a href="/users/profile">
                         Nombre del usuario <i class="fas fa-user"></i>
                     </a>
                 </li>
@@ -43,7 +46,8 @@
                             Cerrar sesión <i class="fas fa-sign-in-alt"></i>
                         </button>
                     </form>
-                </li> -->
+                </li> 
+                <%}else {%>
                 <li>
                     <a href="/users/register">Creá tu cuenta <i class="far fa-address-card"></i>
                     </a>
@@ -51,6 +55,7 @@
                 <li>
                     <a href="/users/login">Iniciar sesión <i class="fas fa-sign-in-alt"></i></a>
                 </li>
+                <%}%>
             </ul>
         </nav>
     </div>
