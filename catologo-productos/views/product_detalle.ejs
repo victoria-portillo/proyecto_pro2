@@ -17,31 +17,11 @@
 						La sombra del viento es una novela de Carlos Ruiz Zafón publicada en 2001, el primer libro de la saga del Cementerio de los libros olvidados y un superventas mundial, con más de quince millones de ejemplares vendidos en 36 idiomas diferentes.	
 					</p>
 				</article>
-				<div class="col-12 col-lg-4">
-					<section class="comments">
-						<% for(let i=0; i < comentarios.length; i++){%>
-						<article>
-							<img src= <%=comentarios[i].imagenPerfil %> >
-							<div class="data">
-								<p class="user">
-								<strong> <a href="/views/profile.ejs">Nombre usuario: <%=comentarios[i].nombreUsuario %>  </a> </strong>
-							<%=comentarios[i].textoComentario %>
-							</p>
-							</div>
-						</article>
-						<%}%>
-
-
-					</section>
-					<form class="form" action="" method="POST">
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
-						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-					</form>
-					<hr>
-				</div>
+				
 			</div>
 		</div>
 	</div>
 	
+	<!-- Arreglar producto detalle -->
 
 <%- include('./partials/footer') %>
