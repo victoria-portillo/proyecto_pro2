@@ -1,19 +1,26 @@
 module.exports = function (sequelize, dataTypes) {
-    let alias = 'Comentario';
+    let alias = "Comentarios";
     let cols = {
         id: {
+            type: dataTypes.INTEGER,
+            unsigned: true,
+            notNull: true,
             autoIncrement: true,
             primaryKey: true,
-            type: dataTypes.INTEGER,
         },
         id_producto: {
             type: dataTypes.INTEGER,
+            unsigned: true,
+            notNull: true,
         },
         id_usuario: {
             type: dataTypes.INTEGER,
+            unsigned: true,
+            notNull: true,
         },
-        texto: {
+        comentario: {
             type: dataTypes.STRING(500),
+            notNull: true,
         },
         createdAt:{
             type: dataTypes.DATE,
@@ -28,7 +35,7 @@ module.exports = function (sequelize, dataTypes) {
         
     };
     let config = {
-        tableName: 'comentarios',
+        tableName: "Comentarios",
         timestamps: true,
         underscored: true,
     };
