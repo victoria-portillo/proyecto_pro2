@@ -1,41 +1,41 @@
 CREATE SCHEMA tablas_de_datos;
 USE `tablas_de_datos`;
-CREATE TABLE Usuarios(
+CREATE TABLE Usuarios (
 id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
 nombre VARCHAR(20) NOT NULL,
 email VARCHAR(30) NOT NULL UNIQUE,
-password VARCHAR(200) NOT NULL,
+contrasena VARCHAR(200) NOT NULL,
 foto_de_perfil VARCHAR(200),
 dni INT NOT NULL UNIQUE,
 fecha_de_nacimiento DATE NOT NULL,
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-deleted_at TIMESTAMP NULL
+createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+deletedAt TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 );
 
 USE `tablas_de_datos`;
-CREATE TABLE `Productos` (
+CREATE TABLE Productos (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_usuario` INT UNSIGNED NOT NULL,
   `nombre_producto` varchar(50) NOT NULL,
   `descripcion_producto` text NOT NULL,
-  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `deleted_at` TIMESTAMP NULL DEFAULT NULL,
+  `createdAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `deletedAt` TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `fk_productos_clientes` (`id_usuario`),
   CONSTRAINT `fk_productos_clientes` FOREIGN KEY (`id_usuario`) REFERENCES `Usuarios` (`id`)
 );
 
 USE `tablas_de_datos`;
-CREATE TABLE `Comentarios` (
+CREATE TABLE Comentarios (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_producto` INT UNSIGNED NOT NULL,
   `id_usuario` INT UNSIGNED NOT NULL,
-  `Comentario` text NOT NULL,
-  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `deleted_at` TIMESTAMP NULL DEFAULT NULL,
+  `comentario` text NOT NULL,
+  `createdAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `deletedAt` TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `fk_comentarios_clientes` (`id_usuario`),
   KEY `fk_comentarios_producto` (`id_producto`),
@@ -44,7 +44,7 @@ CREATE TABLE `Comentarios` (
 )
 
 USE `tablas_de_datos`;
-INSERT INTO Usuarios (id,nombre,email,password,dni,fecha_de_nacimiento) VALUES
+INSERT INTO Usuarios (id,nombre,email,contrasena,dni,fecha_de_nacimiento) VALUES
 (1,'Miguel Estrada','miguel.estrada@gmail.com','Miguelestrada2001',44126876,'2001-03-24'),
 (2,'Jimena Pacheco','jimepacheco123@gmail.com','pachecogolf1273',39357902,'1978-06-01'),
 (3,'Juan Perez','Jperez10@gmail.com','Messiteamo32',94823776,'2006-12-30'),
@@ -105,4 +105,4 @@ INSERT INTO Comentarios (id,id_producto,id_usuario,comentario) VALUES
 (37,10,2,'Este libro es una historia de superación personal. La forma en que el personaje principal crece y cambia a lo largo de la historia es inspiradora.'),
 (38,10,3,'Este libro me mantuvo pegado a sus páginas hasta el final. ¡Fue increíble!'),
 (39,10,4,'Este libro cambió mi forma de pensar sobre ciertos temas. Me dejó pensando durante días.'),
-(40,10,5'Me encanta cómo este libro toca temas profundos pero al mismo tiempo es divertido y entretenido de leer.',);
+(40,10,5'Me encanta cómo este libro toca temas profundos pero al mismo tiempo es divertido y entretenido de leer.');
