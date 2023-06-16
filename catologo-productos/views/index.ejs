@@ -25,10 +25,14 @@
 							<img src="<%=productosFiltro[i].imagen%>" alt="Imagen de <%productosFiltro[i].nombre_producto%>" >
 						</figure>
 					        <article class="product-box_data">
-							<h2> <%= productos[i].nombre_producto %> </h2>
-							<p> <%= productos[i].descripcion_producto %>  </p>
+							<h2> <%= productosFiltro[i].nombre_producto %> </h2>
+							<p> <%= productosFiltro[i].descripcion_producto %>  </p>
 							
+							<p><a href="/users/profile/<%= productosFiltro[i].usuario.id_usuario%> "> Subido por: <%= productosFiltro[i].usuario.nombre %> </p> </a>
+
+
 						</article>
+
 						
 					</a>
 					<%}%>
