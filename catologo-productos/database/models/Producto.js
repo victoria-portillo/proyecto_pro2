@@ -1,5 +1,7 @@
+
 module.exports = function (sequelize, dataTypes) {
-    let alias = "Productos";
+    
+    let alias = "Producto";
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -14,11 +16,11 @@ module.exports = function (sequelize, dataTypes) {
             allowNull: true
         },
         nombre_producto: {
-            type: dataTypes.STRING(50),
+            type: dataTypes.STRING,
             allowNull: true
         },
         descripcion_producto: {
-            type: dataTypes.STRING(500),
+            type: dataTypes.STRING,
             allowNull: true
         },
         createdAt: {
@@ -42,7 +44,7 @@ module.exports = function (sequelize, dataTypes) {
 
     Producto.associate = function(models) {
         // Un perfil --> muchos comentarios
-        Comentario.belongsToMany(models.Usuarios , {
+        Producto.belongsToMany(models.Usuarios , {
             as: "usuario",
             through: "Usuario_producto",
             foreignKey: "id_producto",

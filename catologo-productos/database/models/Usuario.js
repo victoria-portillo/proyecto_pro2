@@ -1,4 +1,4 @@
-module.export = function (sequelize, dataTypes) {
+module.exports = function (sequelize, dataTypes) {
 
     let alias = "Usuarios";
     
@@ -11,20 +11,20 @@ module.export = function (sequelize, dataTypes) {
             autoIncrement: true
         } ,
         nombre: {
-            type: dataTypes.STRING(20),
+            type: dataTypes.STRING,
             allowNull: false
         },
         email: {
-            type: dataTypes.STRING(30),
+            type: dataTypes.STRING,
             allowNull: false, 
             unique: true
         } ,
         contrasena: {
-            type: dataTypes.STRING(200),
+            type: dataTypes.STRING,
             allowNull: false
         }, 
         foto_de_perfil:{
-            type: dataTypes.STRING(200)
+            type: dataTypes.STRING
         } ,
         dni: {
             type: dataTypes.INTEGER,

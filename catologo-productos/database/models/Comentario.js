@@ -19,7 +19,7 @@ module.exports = function (sequelize, dataTypes) {
             allowNull: false,
         },
         comentario: {
-            type: dataTypes.STRING(500),
+            type: dataTypes.STRING,
             allowNull: false,
         },
         createdAt:{
@@ -45,7 +45,7 @@ module.exports = function (sequelize, dataTypes) {
 
     Comentario.associate = function(models) {
         // Un perfil --> muchos comentarios
-        Comentario.belongsTo(models.Perfil , {
+        Comentario.belongsTo(models.Usuarios , {
             as: "usuario",
             foreignKey: "id_usuario"
         }),
