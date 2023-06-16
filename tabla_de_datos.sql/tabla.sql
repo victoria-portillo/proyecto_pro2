@@ -10,8 +10,9 @@ dni INT NOT NULL UNIQUE,
 fecha_de_nacimiento DATE NOT NULL,
 createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-deletedAt TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+deletedAt TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
+
 
 USE `tablas_de_datos`;
 CREATE TABLE Productos (
@@ -41,9 +42,8 @@ CREATE TABLE Comentarios (
   KEY `fk_comentarios_producto` (`id_producto`),
   CONSTRAINT `fk_comentarios_clientes` FOREIGN KEY (`id_usuario`) REFERENCES `Usuarios` (`id`),
   CONSTRAINT `fk_comentarios_producto` FOREIGN KEY (`id_producto`) REFERENCES `Productos` (`id`)
-)
+);
 
-USE `tablas_de_datos`;
 INSERT INTO Usuarios (id,nombre,email,contrasena,dni,fecha_de_nacimiento) VALUES
 (1,'Miguel Estrada','miguel.estrada@gmail.com','Miguelestrada2001',44126876,'2001-03-24'),
 (2,'Jimena Pacheco','jimepacheco123@gmail.com','pachecogolf1273',39357902,'1978-06-01'),
@@ -97,12 +97,12 @@ INSERT INTO Comentarios (id,id_producto,id_usuario,comentario) VALUES
 (29,8,4,'Este libro es un verdadero clásico que todos deberían leer al menos una vez en su vida. Me encantó.'),
 (30,8,5,'Este libro es una obra de arte literaria. La prosa es hermosa y la historia es conmovedora.'),
 (31,8,1,'Este libro es una joya literaria que no se puede dejar de leer. La historia es cautivadora y los personajes son memorables.'),
-(32,8,2'Este libro es una aventura épica. La trama está bien desarrollada y los personajes son valientes y audaces.'),
-(33,9,3'Este libro es una lectura emocionante. La trama está bien desarrollada y los personajes son realistas y convincentes.',),
+(32,8,2,'Este libro es una aventura épica. La trama está bien desarrollada y los personajes son valientes y audaces.'),
+(33,9,3,'Este libro es una lectura emocionante. La trama está bien desarrollada y los personajes son realistas y convincentes.'),
 (34,9,4,'Este libro es un clásico moderno. La historia es única y la narrativa es impresionante.'),
 (35,9,5,'Este libro me mantuvo enganchado desde el principio hasta el final. La trama es intrigante y los personajes son fascinantes.'),
 (36,9,1,'Este libro es una obra maestra del realismo mágico. La historia es única y la narrativa es impresionante.'),
 (37,10,2,'Este libro es una historia de superación personal. La forma en que el personaje principal crece y cambia a lo largo de la historia es inspiradora.'),
 (38,10,3,'Este libro me mantuvo pegado a sus páginas hasta el final. ¡Fue increíble!'),
 (39,10,4,'Este libro cambió mi forma de pensar sobre ciertos temas. Me dejó pensando durante días.'),
-(40,10,5'Me encanta cómo este libro toca temas profundos pero al mismo tiempo es divertido y entretenido de leer.');
+(40,10,5,'Me encanta cómo este libro toca temas profundos pero al mismo tiempo es divertido y entretenido de leer.');

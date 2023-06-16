@@ -7,33 +7,33 @@ module.export = function (sequelize, dataTypes) {
             type: dataTypes.INTEGER,
             unsigned: true,
             primaryKey: true,
-            notNull: true,
+            allowNull: false,
             autoIncrement: true
         } ,
         nombre: {
             type: dataTypes.STRING(20),
-            notNull: true
+            allowNull: false
         },
         email: {
             type: dataTypes.STRING(30),
-            notNull: true, 
+            allowNull: false, 
             unique: true
         } ,
         contrasena: {
             type: dataTypes.STRING(200),
-            notNull: true
+            allowNull: false
         }, 
         foto_de_perfil:{
             type: dataTypes.STRING(200)
         } ,
         dni: {
             type: dataTypes.INTEGER,
-            notNull: true,
+            allowNull: false,
             unique: true
         } ,
         fecha_de_nacimiento: {
             type: dataTypes.DATE,
-            notNull: true,
+            allowNull: false
         } ,
         createdAt:{
             type: dataTypes.DATE,

@@ -4,22 +4,22 @@ module.exports = function (sequelize, dataTypes) {
         id: {
             type: dataTypes.INTEGER,
             unsigned: true,
-            notNull: true,
+            allowNull: true,
             autoIncrement: true,
             primaryKey: true
         },
         id_usuario: {
             type: dataTypes.INTEGER,
             unsigned: true,
-            notNull: true
+            allowNull: true
         },
         nombre_producto: {
             type: dataTypes.STRING(50),
-            notNull: true
+            allowNull: true
         },
         descripcion_producto: {
             type: dataTypes.STRING(500),
-            notNull: true
+            allowNull: true
         },
         createdAt: {
             type: dataTypes.DATE,
