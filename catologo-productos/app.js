@@ -19,6 +19,35 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({
+  secret: 'entreLineas',
+  resave: false,
+  saveUninitialized: true,
+}));
+
+app.use(function(req,res,next){
+  if (req.session.user) {
+    res.locals.user = req.session.user
+  }
+  return next();
+})
+
+app.use(function (req, res, next) {
+  if (req.cookies.id_usuarios != undefined && req.session.user == undefined) { 
+    let userId = req.cookies.id_usuarios;
+    Usuario.findByPk(userId)
+      .then(function(user){
+        req.session.user = user.dataValues
+        res.locals.user = user.dataValues
+        return next();
+      })
+      .catch(error => console.log(error))
+  } else {
+    return next();
+  }
+})
+
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/productos', productosRouter)

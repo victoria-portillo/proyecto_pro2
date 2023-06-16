@@ -1,4 +1,4 @@
-const controller = {
+const productosController = {
 index: function(req, res){
     res.send('Aca se encuentran todos los productos', {usuarioLogueado: false})
 },
@@ -16,4 +16,4 @@ add: function(req, res){
 
 }
 
-module.exports = controller
+module.exports = productosController
