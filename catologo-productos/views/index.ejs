@@ -14,19 +14,19 @@
 			<div class="col-12">
 				
 				<h2 class="products-title">Novedades</h2>
-				<% for(let i=0; i < productos.length; i++){%>
+				
 			</div>
 			<!-- Show the "ultimos" products -->
 		<div class="col-12 col-sm-6 col-lg-3">
-			
+			<% for ( let i=0; i<4; i++){ %>
 				<section class="product-box">
-					<a href="/productos/detalle">
+					<a href="/productos/id/<%=productosFiltro[i].id%>">
 						<figure class="product-box_image">
-							<img src=<%=productos[i].imagen%> >
+							<img src="<%=productosFiltro[i].imagen%>" alt="Imagen de <%productosFiltro[i].nombre_producto%>" >
 						</figure>
 					        <article class="product-box_data">
-							<h2> <%= productos[i].nombre %> </h2>
-							<p> <%= productos[i].descripción %>  </p>
+							<h2> <%= productos[i].nombre_producto %> </h2>
+							<p> <%= productos[i].descripcion_producto %>  </p>
 							
 						</article>
 						

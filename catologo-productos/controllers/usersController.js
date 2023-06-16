@@ -1,7 +1,5 @@
 const db = require('../database/models')
-const productos = db.Producto
 const usuarios = db.Usuario
-const comentarios = db.Comentario
 const bcrypt = require('bcryptjs');
 
 const usersController = {
