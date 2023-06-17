@@ -1,16 +1,15 @@
-CREATE SCHEMA tablas_de_datos;
 USE `tablas_de_datos`;
-CREATE TABLE Usuarios (
-id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+CREATE TABLE usuarios (
+id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 nombre VARCHAR(20) NOT NULL,
 email VARCHAR(30) NOT NULL UNIQUE,
 contrasena VARCHAR(200) NOT NULL,
 foto_de_perfil VARCHAR(200),
 dni INT NOT NULL UNIQUE,
 fecha_de_nacimiento DATE NOT NULL,
-createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-deletedAt TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+updatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+deletedAt TIMESTAMP NULL
 );
 
 
@@ -19,10 +18,12 @@ CREATE TABLE Productos (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_usuario` INT UNSIGNED NOT NULL,
   `nombre_producto` varchar(50) NOT NULL,
+  `image` text,
   `descripcion_producto` text NOT NULL,
   `createdAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `deletedAt` TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `deletedAt` TIMESTAMP NULL,
+  
   PRIMARY KEY (`id`),
   KEY `fk_productos_clientes` (`id_usuario`),
   CONSTRAINT `fk_productos_clientes` FOREIGN KEY (`id_usuario`) REFERENCES `Usuarios` (`id`)
@@ -36,7 +37,8 @@ CREATE TABLE Comentarios (
   `comentario` text NOT NULL,
   `createdAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `deletedAt` TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `deletedAt` TIMESTAMP NULL,
+  
   PRIMARY KEY (`id`),
   KEY `fk_comentarios_clientes` (`id_usuario`),
   KEY `fk_comentarios_producto` (`id_producto`),
@@ -52,17 +54,17 @@ INSERT INTO Usuarios (id,nombre,email,contrasena,dni,fecha_de_nacimiento) VALUES
 (5,'Maris Susana Gonzalez','susanitag27@gmail.com','Xeneize12',40988762,'1984-07-17');
 
 USE `tablas_de_datos`;
-INSERT INTO productos (id, id_usuario, nombre_producto, descripcion_producto) VALUES 
-(1,1,'1984','Esta novela distópica, escrita por George Orwell, imagina un futuro totalitario en el que el gobierno controla todos los aspectos de la vida de las personas, incluso sus pensamientos. "1984" es una crítica feroz al autoritarismo y una advertencia sobre los peligros del poder sin restricciones.'),
-(2,1,'El gran Gatsby','Esta novela escrita por F. Scott Fitzgerald, esta ambientada en la década de 1920 sigue la vida de Jay Gatsby, un hombre rico y misterioso que organiza fiestas extravagantes en su mansión en Long Island. A través de los ojos del narrador, Nick Carraway, "El gran Gatsby" explora la corrupción y el vacío de la alta sociedad americana.'),
-(3,2,'El senior de los anillos','Esta trilogía épica, escrita por J.R.R Tolkien, sigue las aventuras de un grupo de hobbits, enanos, elfos y humanos mientras buscan destruir el Anillo Único, un objeto poderoso que podría caer en manos equivocadas. "El señor de los anillos" es una obra maestra del género de la fantasía y ha sido adaptada al cine con gran éxito.'),
-(4,2,'El aleph','Esta colección de cuentos del escritor argentino Jorge Luis Borges explora temas como el tiempo, el espacio y la identidad. "El aleph" es una obra de gran complejidad y profundidad y es considerada una de las mejores colecciones de cuentos de la literatura en español.'),
-(5,3,'La sombre del viento','Esta novela cuenta la historia de Daniel Sempere, un joven que descubre un libro en la librería de su padre y comienza a investigar sobre el autor, Julián Carax. A medida que Daniel profundiza en la vida de Carax, se adentra en una trama de amor, venganza y misterio en la Barcelona de posguerra.'),
-(6,3,'La insoportable levedad del ser','Ambientada en Praga en la década de 1960, esta novela explora la vida de cuatro personajes: Tomás, Teresa, Sabina y Franz. "La insoportable levedad del ser" es una reflexión sobre la libertad, el amor y la identidad, y es considerada una de las obras más importantes de la literatura europea contemporánea.'),
-(7,4,'corte de rosas y espinas','es una novela de fantasía escrita por la autora estadounidense Sarah J. Maas. La historia sigue a la protagonista, Feyre, una cazadora que mata a un lobo en el bosque, pero que es llevada al mundo mágico de los fae como castigo por su crimen. Allí, debe luchar por su supervivencia y descubrir la verdad detrás de los misteriosos sucesos que ocurren en el mundo de los fae. A medida que la trama se desarrolla, se revelan intrigas políticas, amores prohibidos y peligrosas amenazas que pondrán en peligro la vida de Feyre y de aquellos a quienes ama. "Corte de Rosas y Espinas" es el primer libro de una serie de novelas de fantasía épica y ha sido elogiado por su mundo detallado y sus personajes bien desarrollados. Es una obra que invita a la reflexión sobre el valor de la empatía y la lucha contra la injusticia en un mundo mágico lleno de peligros y sorpresas.'),
-(8,4,'La metamorfosis','ste relato corto cuenta la historia de Gregor Samsa, un hombre que se despierta un día convertido en un insecto. "La metamorfosis" es una obra de la literatura moderna que explora la alienación, la soledad y la desesperación.'),
-(9,5,'El principito','Esta novela corta cuenta la historia de un niño que viaja de planeta en planeta y se encuentra con varios personajes que representan diferentes aspectos de la vida humana. "El principito" es una obra tierna y poética que ha sido traducida a más de 250 idiomas.'),
-(10,5,'La casa de los espiritus','Esta novela sigue la historia de la familia Trueba a lo largo de varias décadas en Chile. "La casa de los espíritus" es una obra que combina elementos del realismo mágico con la política y la historia de América Latina.');
+INSERT INTO productos (id_usuario, nombre_producto, image, descripcion_producto) VALUES 
+(1,'1984','','Esta novela distópica, escrita por George Orwell, imagina un futuro totalitario en el que el gobierno controla todos los aspectos de la vida de las personas, incluso sus pensamientos. "1984" es una crítica feroz al autoritarismo y una advertencia sobre los peligros del poder sin restricciones.'),
+(1,'El gran Gatsby','','Esta novela escrita por F. Scott Fitzgerald, esta ambientada en la década de 1920 sigue la vida de Jay Gatsby, un hombre rico y misterioso que organiza fiestas extravagantes en su mansión en Long Island. A través de los ojos del narrador, Nick Carraway, "El gran Gatsby" explora la corrupción y el vacío de la alta sociedad americana.'),
+(2,'El senior de los anillos','','Esta trilogía épica, escrita por J.R.R Tolkien, sigue las aventuras de un grupo de hobbits, enanos, elfos y humanos mientras buscan destruir el Anillo Único, un objeto poderoso que podría caer en manos equivocadas. "El señor de los anillos" es una obra maestra del género de la fantasía y ha sido adaptada al cine con gran éxito.'),
+(2,'El aleph','','Esta colección de cuentos del escritor argentino Jorge Luis Borges explora temas como el tiempo, el espacio y la identidad. "El aleph" es una obra de gran complejidad y profundidad y es considerada una de las mejores colecciones de cuentos de la literatura en español.'),
+(3,'La sombre del viento','','Esta novela cuenta la historia de Daniel Sempere, un joven que descubre un libro en la librería de su padre y comienza a investigar sobre el autor, Julián Carax. A medida que Daniel profundiza en la vida de Carax, se adentra en una trama de amor, venganza y misterio en la Barcelona de posguerra.'),
+(3,'La insoportable levedad del ser','','Ambientada en Praga en la década de 1960, esta novela explora la vida de cuatro personajes: Tomás, Teresa, Sabina y Franz. "La insoportable levedad del ser" es una reflexión sobre la libertad, el amor y la identidad, y es considerada una de las obras más importantes de la literatura europea contemporánea.'),
+(4,'corte de rosas y espinas','','es una novela de fantasía escrita por la autora estadounidense Sarah J. Maas. La historia sigue a la protagonista, Feyre, una cazadora que mata a un lobo en el bosque, pero que es llevada al mundo mágico de los fae como castigo por su crimen. Allí, debe luchar por su supervivencia y descubrir la verdad detrás de los misteriosos sucesos que ocurren en el mundo de los fae. A medida que la trama se desarrolla, se revelan intrigas políticas, amores prohibidos y peligrosas amenazas que pondrán en peligro la vida de Feyre y de aquellos a quienes ama. "Corte de Rosas y Espinas" es el primer libro de una serie de novelas de fantasía épica y ha sido elogiado por su mundo detallado y sus personajes bien desarrollados. Es una obra que invita a la reflexión sobre el valor de la empatía y la lucha contra la injusticia en un mundo mágico lleno de peligros y sorpresas.'),
+(4,'La metamorfosis','','ste relato corto cuenta la historia de Gregor Samsa, un hombre que se despierta un día convertido en un insecto. "La metamorfosis" es una obra de la literatura moderna que explora la alienación, la soledad y la desesperación.'),
+(5,'El principito','','Esta novela corta cuenta la historia de un niño que viaja de planeta en planeta y se encuentra con varios personajes que representan diferentes aspectos de la vida humana. "El principito" es una obra tierna y poética que ha sido traducida a más de 250 idiomas.'),
+(5,'La casa de los espiritus','','Esta novela sigue la historia de la familia Trueba a lo largo de varias décadas en Chile. "La casa de los espíritus" es una obra que combina elementos del realismo mágico con la política y la historia de América Latina.');
 
 USE `tablas_de_datos`;
 INSERT INTO Comentarios (id,id_producto,id_usuario,comentario) VALUES
