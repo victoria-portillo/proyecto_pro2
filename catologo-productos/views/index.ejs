@@ -1,78 +1,66 @@
 <%- include('./partials/head') %>
-<%- include('./partials/header') %>
-<main>
-<div class="banner">
-		<img src="images/libros.jpg" alt="Banner de ofertas">
-	</div>
-	<!-- /Banner -->
-
-	<!-- Novedades -->
-	<div class="container products-wrapper">
-		
-		<div class="row">
-			
-			<div class="col-12">
-				
-				<h2 class="products-title">Novedades</h2>
-				
+	<%- include('./partials/header') %>
+		<main>
+			<div class="banner">
+				<img src="images/libros.jpg" alt="Banner de ofertas">
 			</div>
-			<!-- Show the "ultimos" products -->
-		<div class="col-12 col-sm-6 col-lg-3">
-			<% for ( let i=0; i<4; i++){ %>
-				<section class="product-box">
-					<a href="/productos/id/<%=productosFiltro[i].id%>">
-						<figure class="product-box_image">
-							<img src="<%=productosFiltro[i].imagen%>" alt="Imagen de <%productosFiltro[i].nombre_producto%>" >
-						</figure>
-					        <article class="product-box_data">
-							<h2> <%= productosFiltro[i].nombre_producto %> </h2>
-							<p> <%= productosFiltro[i].descripcion_producto %>  </p>
-							
-							<p><a href="/users/profile/<%= productosFiltro[i].usuario.id_usuario%> "> Subido por: <%= productosFiltro[i].usuario.nombre %> </p> </a>
+			<!-- /Banner -->
 
-
-						</article>
-
-						
-					</a>
+			<!-- Novedades -->
+			<div class="container products-wrapper">
+				<div class="row">
+					<div class="col-12">
+						<h2 class="products-title">Novedades</h2>
+					</div>
+					<!-- Show the "ultimos" products -->
+					<% for ( let i=0; i<4; i++){ %>
+						<div class="col-12 col-sm-6 col-lg-3">
+							<section class="product-box">
+								<a href="/productos/id/<%=productosFiltro[i].id%>">
+									<figure class="product-box_image">
+										<img src="<%=productosFiltro[i].imagen%>" alt="Imagen de <%productosFiltro[i].nombre_producto%>">
+									</figure>
+									<article class="product-box_data">
+										<h2><%= productosFiltro[i].nombre_producto %></h2>
+										<p><%= productosFiltro[i].descripcion_producto %></p>
+										<p><a href="/users/profile/<%= productosFiltro[i].usuario.id_usuario%> "> Subido por: <%= productosFiltro[i].usuario.nombre %></p></a>
+										<p>Comentarios: <%= productosFiltro[i].comentarios.length %></p>
+									</article>
+								</a>
+							</section>
+						</div>
 					<%}%>
-				</section>
+				</div>
 			</div>
-		</div>
-	</div>
-	<!-- /Novedades -->
-	<!-- Más comentados -->
-	
-	<div class="container products-wrapper">
-		
-		<div class="row">
-			
-			<div class="col-12">
-				
-				<h2 class="products-title">Más comentados</h2>
-				<% for(let i=0; i < productos.length; i++){%>
+			<!-- /Novedades -->
+			<!-- Más comentados -->
+
+			<div class="container products-wrapper">
+
+				<div class="row">
+
+					<div class="col-12">
+						<h2 class="products-title">Más comentados</h2>
+					</div>
+					<!-- Show the "ultimos" products -->
+					<% for ( let i=0; i<4; i++){ %>
+						<div class="col-12 col-sm-6 col-lg-3">
+							<section class="product-box">
+								<a href="/productos/id/<%=productosFiltro[i].id%>">
+									<figure class="product-box_image">
+										<img src="<%=productosFiltro[i].imagen%>" alt="Imagen de <%productosFiltro[i].nombre_producto%>">
+									</figure>
+									<article class="product-box_data">
+										<h2><%= productosFiltro[i].nombre_producto %></h2>
+										<p><%= productosFiltro[i].descripcion_producto %></p>
+										<p><a href="/users/profile/<%= productosFiltro[i].usuario.id_usuario%> "> Subido por: <%= productosFiltro[i].usuario.nombre %></p></a>
+										<p>Comentarios: <%= productosFiltro[i].comentarios.length %></p>
+									</article>
+								</a>
+							</section>
+						</div>
+					<%}%>
+				</div>
 			</div>
-			<!-- Show the "ultimos" products -->
-		<div class="col-12 col-sm-6 col-lg-3">
-			
-				<section class="product-box">
-					<a href="/productos/detalle">
-						<figure class="product-box_image">
-							<img src=<%=productos[i].imagen%> >
-						</figure>
-					        <article class="product-box_data">
-							<h2> <%= productos[i].nombre %> </h2>
-							<p> <%= productos[i].descripción %>  </p>
-							
-						</article>
-						<%}%>
-					</a>
-				</section>
-			</div>
-		</div>
-	</div>
-
-
-
-</main>
-    <%- include('./partials/footer') %>
+		</main>
+		<%- include('./partials/footer') %>

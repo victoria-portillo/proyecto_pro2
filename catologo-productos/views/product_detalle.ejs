@@ -4,24 +4,51 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title">La sombra del viento</h2> 
-			<p class="product-detail-description">
-				<a href="product-add.html">Editar</a>
-			</p>
+			<h2 class="products-title"><%= producto.nombre_producto %></h2>
+			<% if ( locals.user ) { %>
+				<% if ( locals.user.id === product.usuario.id ) { %>
+					<p class="product-detail-description">
+						<a href="/editar/<%= producto.id %>">Editar</a>
+						●
+						<a href="/eliminar">Eliminar</a>
+					</p>
+				<% } %>
+			<% } %>
 		</div>
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="/images/sombra.jpg" alt="" class="product-detail-img">
-					<p class="product-detail-description">
-						La sombra del viento es una novela de Carlos Ruiz Zafón publicada en 2001, el primer libro de la saga del Cementerio de los libros olvidados y un superventas mundial, con más de quince millones de ejemplares vendidos en 36 idiomas diferentes.	
-					</p>
+					<img src="<%= producto.image %>" alt="<%= producto.nombre_producto %>" class="product-detail-img">
+					<p class="product-detail-description"><%= producto.descripcion_producto %></p>
 				</article>
-				
+				<div class="col-12 col-lg-4">
+					<section class="comments">
+						<% if ( producto.comentarios.length > 0 ) { %>
+							<% for (let i = 0; i < producto.comentarios.length; i++) { %>
+								<article>
+									<img src="" alt="">
+									<div class="data">
+										<p class="user">
+											<strong> <a href="/users/profile/<%= producto.comentarios[i].usuario.id %>"><%= producto.comentarios[i].usuario.nombre %>:</a> </strong><%= producto.comentarios[i].comentario %>
+										</p>
+									</div>
+								</article>
+							<% } %>
+						<% } else { %>
+							<p class="user">No hay comentarios</p>
+						<% } %>
+
+					</section>
+					<form class="form" action="" method="POST">
+						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
+						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+					</form>
+					<hr>
+				</div>
 			</div>
 		</div>
 	</div>
 	
-	<!-- Arreglar producto detalle -->
+	
 
 <%- include('./partials/footer') %>

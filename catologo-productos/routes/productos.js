@@ -2,17 +2,20 @@ const express = require('express')
 const router = express.Router()
 const productosController = require('../controllers/productosController')
 
+router.get('/add', productosController.vistaAgregar)
+router.get('/search', productosController.vistaBuscar)
+router.get('/editar/:id', productosController.vistaEditar)
 
-router.get('/producto', productosController.index)
+// // FUNCIONALIDAD ASOCIADA A LA VISTA DE AGREGAR PRODUCTO
+router.post('/add', productosController.funcionAgregar)
 
+// // FUNCIONALIDADES ASOCIADAS AL DETALLE DE UN PRODUCTO
+router.post('/comentar', productosController.funcionComentar)
+router.post('/borrar', productosController.funcionBorrar)
 
-router.get('/detalle', productosController.detalle)
+// // FUNCIONALIDAD ASOCIADA A LA VISTA DE EDITAR PRODUCTO
+router.post('/editar/:id', productosController.funcionEditar)
 
-
-router.get('/add', productosController.add)
-router.post('/add', productosController.create)
-
-router.get('/search', productosController.search)
-
+router.get('/detalle/:id', productosController.vistaDetalle)
 
 module.exports = router
