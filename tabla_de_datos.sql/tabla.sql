@@ -1,8 +1,11 @@
+CREATE SCHEMA `tablas_de_datos`;
+
 USE `tablas_de_datos`;
+
 CREATE TABLE usuarios (
 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-nombre VARCHAR(20) NOT NULL,
-email VARCHAR(30) NOT NULL UNIQUE,
+nombre VARCHAR(50) NOT NULL,
+email VARCHAR(50) NOT NULL UNIQUE,
 contrasena VARCHAR(200) NOT NULL,
 foto_de_perfil VARCHAR(200),
 dni INT NOT NULL UNIQUE,
@@ -13,13 +16,12 @@ deletedAt TIMESTAMP NULL
 );
 
 
-USE `tablas_de_datos`;
 CREATE TABLE Productos (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_usuario` INT UNSIGNED NOT NULL,
   `nombre_producto` varchar(50) NOT NULL,
-  `image` text,
-  `descripcion_producto` text NOT NULL,
+  `image` VARCHAR(200) NOT NULL,
+  `descripcion_producto` VARCHAR(1000) NOT NULL,
   `createdAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deletedAt` TIMESTAMP NULL,
@@ -29,12 +31,12 @@ CREATE TABLE Productos (
   CONSTRAINT `fk_productos_clientes` FOREIGN KEY (`id_usuario`) REFERENCES `Usuarios` (`id`)
 );
 
-USE `tablas_de_datos`;
+
 CREATE TABLE Comentarios (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_producto` INT UNSIGNED NOT NULL,
   `id_usuario` INT UNSIGNED NOT NULL,
-  `comentario` text NOT NULL,
+  `comentario` VARCHAR(200) NOT NULL,
   `createdAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deletedAt` TIMESTAMP NULL,
@@ -53,7 +55,6 @@ INSERT INTO Usuarios (id,nombre,email,contrasena,dni,fecha_de_nacimiento) VALUES
 (4,'Micaela Selman','micaselman@gmail.com','micaELA3260',41456282,'1995-02-08'),
 (5,'Maris Susana Gonzalez','susanitag27@gmail.com','Xeneize12',40988762,'1984-07-17');
 
-USE `tablas_de_datos`;
 INSERT INTO productos (id_usuario, nombre_producto, image, descripcion_producto) VALUES 
 (1,'1984','','Esta novela distópica, escrita por George Orwell, imagina un futuro totalitario en el que el gobierno controla todos los aspectos de la vida de las personas, incluso sus pensamientos. "1984" es una crítica feroz al autoritarismo y una advertencia sobre los peligros del poder sin restricciones.'),
 (1,'El gran Gatsby','','Esta novela escrita por F. Scott Fitzgerald, esta ambientada en la década de 1920 sigue la vida de Jay Gatsby, un hombre rico y misterioso que organiza fiestas extravagantes en su mansión en Long Island. A través de los ojos del narrador, Nick Carraway, "El gran Gatsby" explora la corrupción y el vacío de la alta sociedad americana.'),
@@ -66,7 +67,6 @@ INSERT INTO productos (id_usuario, nombre_producto, image, descripcion_producto)
 (5,'El principito','','Esta novela corta cuenta la historia de un niño que viaja de planeta en planeta y se encuentra con varios personajes que representan diferentes aspectos de la vida humana. "El principito" es una obra tierna y poética que ha sido traducida a más de 250 idiomas.'),
 (5,'La casa de los espiritus','','Esta novela sigue la historia de la familia Trueba a lo largo de varias décadas en Chile. "La casa de los espíritus" es una obra que combina elementos del realismo mágico con la política y la historia de América Latina.');
 
-USE `tablas_de_datos`;
 INSERT INTO Comentarios (id,id_producto,id_usuario,comentario) VALUES
 (1,1,1,'Este libro es excelente!'),
 (2,1,2,'Me encanta la selección de libros que tienen en su página. Siempre encuentro algo interesante para leer.'),
