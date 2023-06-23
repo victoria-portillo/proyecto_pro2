@@ -49,10 +49,21 @@ module.exports = function (sequelize, dataTypes) {
     let config = {
         tableName: "Usuarios",
         timestamps: true,
-        underscored: true
+        underscored: false
     };
 
     const Usuario = sequelize.define(alias, cols, config);
+
+    Usuario.associate = function(models) {
+        Usuario.hasMany(models.Producto , {
+            as: "productos",
+            foreignKey: "id_usuario"
+        })
+        Usuario.hasMany(models.Comentario , {
+            as: "comentarios",
+            foreignKey: "id_usuario"
+        })
+    }
 
 
     return Usuario;
